@@ -27,7 +27,7 @@ Returns account balance for customer 1
 ```
 POST /api/accounts/1/deposit
 {
-   "funds": 50
+   "funds" : 50
 }
 ```
 
