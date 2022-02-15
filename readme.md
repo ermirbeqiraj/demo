@@ -14,7 +14,7 @@ The provided codebase is written in .NET Core and is structured as follows:
 
 This is found in the CustomersController and is currently returning null. You could return either the whole list or a paginated list of customers. You can modify the route to fit whatever parameters you deem fit to accomplish this.
 
-**2.	Create a new controller "“ AccountsController**
+**2.	Create a new controller AccountsController**
 
 This will have the following routes:
 
@@ -36,7 +36,7 @@ Deposits 50 Euro into the account of customer 1
 ```
 POST /api/accounts/1/withdraw
 {
-   "funds": 50
+   "funds" : 50
 }
 ```
 
@@ -45,9 +45,9 @@ Withdraws 50 Euro from the account of customer 1
 ```
 POST /api/accounts/transfer
 {
-   "from": 1
-   "to": 2
-   "funds": 50
+   "from" : 1
+   "to" : 2
+   "funds" : 50
 }
 ```
 
