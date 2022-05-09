@@ -101,6 +101,7 @@ namespace Repository
             else
             {
                 this.Customers.Add(customer);
+                this.Balances.Add(customer.Id, customer.Balance.Amount);
             }
         }
 

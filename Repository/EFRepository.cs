@@ -49,10 +49,20 @@ namespace Repository
 
         public void SaveCustomer(Customer customer)
         {
-            var balance = new Balance { Customer = customer };
-            _context.Customers.Add(customer);
-            _context.Balances.Add(balance);
-            _context.SaveChanges();
+            var dbCustomer = GetCustomer(customer.Id);
+            if (dbCustomer != null)
+            {
+                dbCustomer.IdCard = customer.IdCard;
+                dbCustomer.Name = customer.Name;
+                dbCustomer.Surname = customer.Surname;
+            }
+            else
+            {
+                var balance = new Balance { Customer = customer };
+                _context.Customers.Add(customer);
+                _context.Balances.Add(balance);
+                _context.SaveChanges();
+            }
         }
 
         public void TransferFunds(Customer fromCustomer, Customer toCustomer, decimal funds)
