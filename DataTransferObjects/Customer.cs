@@ -1,6 +1,7 @@
 ﻿namespace DataTransferObjects
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     /// <summary>
     /// 
@@ -42,5 +43,21 @@
         public Int32 Id { get; set; }
 
         #endregion
+    }
+
+    public class CustomerFundsDto
+    {
+        [Required]
+        public decimal Funds { get; set; }
+    }
+
+    public class TransferFundsDto
+    {
+        [Required]
+        public int From { get; set; }
+        [Required]
+        public int To { get; set; }
+        [Required]
+        public decimal Funds { get; set; }
     }
 }

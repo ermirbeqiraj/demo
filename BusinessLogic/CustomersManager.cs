@@ -1,6 +1,8 @@
 ﻿namespace BusinessLogic
 {
     using System;
+    using System.Collections.Generic;
+    using BusinessLogic.Exceptions;
     using DataTransferObjects;
     using Repository;
 
@@ -50,6 +52,11 @@
             return this.Repository.GetCustomer(id);
         }
 
+        public List<Customer> GetCustomers()
+        {
+            return this.Repository.GetCustomers();
+        }
+
         /// <summary>
         /// Adds the customer.
         /// </summary>
@@ -59,6 +66,64 @@
             this.Repository.SaveCustomer(customer);
         }
 
+        public CustomerFundsDto GetBalance(int id)
+        {
+            var customer = Repository.GetCustomer(id);
+            if (customer == null)
+                throw new CustomerNotFoundException();
+
+            var customerFunds = Repository.GetAvailableFunds(id);
+            return new CustomerFundsDto
+            {
+                Funds = customerFunds
+            };
+        }
+
+        public void Deposit(int id, CustomerFundsDto model)
+        {
+            var customer = Repository.GetCustomer(id);
+            if (customer == null)
+                throw new CustomerNotFoundException();
+
+            if (model.Funds < 0)
+                throw new DepositMinimumException();
+
+            Repository.DepositFunds(id, model.Funds);
+        }
+
+
+        public void Withdraw(int id, CustomerFundsDto model)
+        {
+            var customer = Repository.GetCustomer(id);
+            if (customer == null)
+                throw new CustomerNotFoundException();
+
+            if (model.Funds < 0)
+                throw new DepositMinimumException();
+
+            var customerFunds = Repository.GetAvailableFunds(id);
+            if (customerFunds < model.Funds)
+                throw new FundsOutOfRange(customerFunds);
+
+            Repository.WithdrawFunds(id, model.Funds);
+        }
+
+        public void Transfer(TransferFundsDto model)
+        {
+            var customerFrom = Repository.GetCustomer(model.From);
+            var customerTo = Repository.GetCustomer(model.To);
+            if (customerFrom == null || customerTo == null)
+                throw new CustomerNotFoundException();
+
+            if (model.Funds < 0)
+                throw new DepositMinimumException();
+
+            var customerFunds = Repository.GetAvailableFunds(customerFrom.Id);
+            if (customerFunds < model.Funds)
+                throw new FundsOutOfRange(customerFunds);
+
+            Repository.TransferFunds(model.From, model.To, model.Funds);
+        }
         #endregion
     }
 }

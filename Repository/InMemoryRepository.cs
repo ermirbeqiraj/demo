@@ -81,6 +81,11 @@ namespace Repository
             return this.Customers.FirstOrDefault(c => c.Id == id);
         }
 
+        public List<Customer> GetCustomers()
+        {
+            return this.Customers.ToList();
+        }
+
         /// <summary>
         /// Saves the customer.
         /// </summary>
@@ -113,6 +118,17 @@ namespace Repository
             {
                 this.Balances[customerId] -= funds;
             }
+        }
+
+        public void TransferFunds(int fromCustomer, int toCustomer, decimal funds)
+        {
+            if (!this.Balances.ContainsKey(fromCustomer) || !this.Balances.ContainsKey(toCustomer))
+            {
+                return;
+            }
+
+            this.Balances[fromCustomer] -= funds;
+            this.Balances[toCustomer] += funds;
         }
 
         /// <summary>

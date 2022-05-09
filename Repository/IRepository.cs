@@ -1,6 +1,7 @@
 ﻿namespace Repository
 {
     using System;
+    using System.Collections.Generic;
     using DataTransferObjects;
 
     public interface IRepository
@@ -28,6 +29,8 @@
         /// <returns></returns>
         Decimal GetAvailableFunds(Int32 customerId);
 
+        List<Customer> GetCustomers();
+
         /// <summary>
         /// Gets the customer.
         /// </summary>
@@ -48,7 +51,7 @@
         /// <param name="funds">The funds.</param>
         void WithdrawFunds(Int32 customerId,
                            Decimal funds);
-
+        void TransferFunds(int fromCustomer, int toCustomer, decimal funds);
         #endregion
     }
 }
