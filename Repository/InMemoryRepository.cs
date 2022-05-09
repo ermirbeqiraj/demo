@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Repository
 {
     using System.Linq;
-    using DataTransferObjects;
+    using Test.EfData;
 
     /// <summary>
     /// 
@@ -120,15 +119,15 @@ namespace Repository
             }
         }
 
-        public void TransferFunds(int fromCustomer, int toCustomer, decimal funds)
+        public void TransferFunds(Customer fromCustomer, Customer toCustomer, decimal funds)
         {
-            if (!this.Balances.ContainsKey(fromCustomer) || !this.Balances.ContainsKey(toCustomer))
+            if (!this.Balances.ContainsKey(fromCustomer.Id) || !this.Balances.ContainsKey(toCustomer.Id))
             {
                 return;
             }
 
-            this.Balances[fromCustomer] -= funds;
-            this.Balances[toCustomer] += funds;
+            this.Balances[fromCustomer.Id] -= funds;
+            this.Balances[toCustomer.Id] += funds;
         }
 
         /// <summary>

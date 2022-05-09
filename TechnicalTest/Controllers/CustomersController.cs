@@ -1,10 +1,10 @@
 ﻿namespace TechnicalTest.Controllers
 {
+    using BusinessLogic;
+    using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
-    using BusinessLogic;
-    using DataTransferObjects;
-    using Microsoft.AspNetCore.Mvc;
+    using Test.EfData;
 
     [Route("api/customers")]
     [ApiController]

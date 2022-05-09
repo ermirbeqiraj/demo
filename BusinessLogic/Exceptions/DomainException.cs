@@ -30,7 +30,16 @@ namespace BusinessLogic.Exceptions
         public override string DomainMessage { get; protected set; }
         public FundsOutOfRange(decimal balance) : base()
         {
-            DomainMessage = $"Max you can withdraw is {balance}";
+            DomainMessage = $"Your max balance is {balance}";
+        }
+    }
+
+    public class InvalidBalanceStateException : DomainException
+    {
+        public override string DomainMessage { get; protected set; }
+        public InvalidBalanceStateException() : base()
+        {
+            DomainMessage = $"Your balance was altered before we could save this transaction. Please try again - faster this time";
         }
     }
 }

@@ -4,7 +4,9 @@
     using System.Collections.Generic;
     using BusinessLogic.Exceptions;
     using DataTransferObjects;
+    using Microsoft.EntityFrameworkCore;
     using Repository;
+    using Test.EfData;
 
     public class CustomersManager : ICustomersManager
     {
@@ -122,7 +124,14 @@
             if (customerFunds < model.Funds)
                 throw new FundsOutOfRange(customerFunds);
 
-            Repository.TransferFunds(model.From, model.To, model.Funds);
+            try
+            {
+                Repository.TransferFunds(customerFrom, customerTo, model.Funds);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw new InvalidBalanceStateException();
+            }
         }
         #endregion
     }

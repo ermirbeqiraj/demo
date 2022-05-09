@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28922.388
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnicalTest", "TechnicalTest\TechnicalTest.csproj", "{A51B327A-A59B-470B-AFF3-B636F28F47FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechnicalTest", "TechnicalTest\TechnicalTest.csproj", "{A51B327A-A59B-470B-AFF3-B636F28F47FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{C57010C8-6B87-4049-9F27-B2B0802957BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{C57010C8-6B87-4049-9F27-B2B0802957BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTransferObjects", "DataTransferObjects\DataTransferObjects.csproj", "{4CF97F91-B8DA-4501-9AAE-2052EA93B8D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTransferObjects", "DataTransferObjects\DataTransferObjects.csproj", "{4CF97F91-B8DA-4501-9AAE-2052EA93B8D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{554CCAAF-1B31-479D-831A-FF8145A26850}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{554CCAAF-1B31-479D-831A-FF8145A26850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.EfData", "Test.EfData\Test.EfData.csproj", "{DD5423F3-1567-45A9-94F1-43E03050022D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{554CCAAF-1B31-479D-831A-FF8145A26850}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{554CCAAF-1B31-479D-831A-FF8145A26850}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{554CCAAF-1B31-479D-831A-FF8145A26850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD5423F3-1567-45A9-94F1-43E03050022D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD5423F3-1567-45A9-94F1-43E03050022D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD5423F3-1567-45A9-94F1-43E03050022D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD5423F3-1567-45A9-94F1-43E03050022D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

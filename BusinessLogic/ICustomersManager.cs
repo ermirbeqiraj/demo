@@ -1,8 +1,9 @@
 ﻿namespace BusinessLogic
 {
+    using DataTransferObjects;
     using System;
     using System.Collections.Generic;
-    using DataTransferObjects;
+    using Test.EfData;
 
     public interface ICustomersManager
     {

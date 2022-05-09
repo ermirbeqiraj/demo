@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using DataTransferObjects;
+    using Test.EfData;
 
     public interface IRepository
     {
@@ -51,7 +51,7 @@
         /// <param name="funds">The funds.</param>
         void WithdrawFunds(Int32 customerId,
                            Decimal funds);
-        void TransferFunds(int fromCustomer, int toCustomer, decimal funds);
+        void TransferFunds(Customer fromCustomer, Customer toCustomer, decimal funds);
         #endregion
     }
 }
